@@ -55,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="stamp"
+            android:onClick="takeStamp"
             android:text="Stamp" />
 
         <Space
@@ -64,10 +64,11 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/readStamp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="readStamp"
+            android:onClick="readImage"
             android:text="Read Stamp" />
 
         <Space
@@ -96,7 +97,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="fullRes"
+            android:onClick="takeFull"
             android:text="Full Res" />
 
         <Space
@@ -105,11 +106,11 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/readFull"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="readFullRes"
+            android:onClick="readImage"
             android:text="Read Full" />
 
         <Space
@@ -147,10 +148,11 @@
             android:layout_weight="1" />
 
         <Button
+            android:id="@+id/readGallery"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:onClick="readGallery"
+            android:onClick="readImage"
             android:text="Read Gallery" />
 
         <Space
