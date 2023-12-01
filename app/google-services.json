@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "940542219606",
+    "firebase_url": "https://fbdemo-4ffa1.firebaseio.com",
+    "project_id": "fbdemo-4ffa1",
+    "storage_bucket": "fbdemo-4ffa1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940542219606:android:bee73bc2f13b07593472f7",
+        "android_client_info": {
+          "package_name": "com.example.n11demo03"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940542219606-93lnd2ab68o4h3ftn9ooprsbkabiaegu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJa-VuGNHfLkT4iqFt9_fShFz8UPHuRyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940542219606-93lnd2ab68o4h3ftn9ooprsbkabiaegu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940542219606:android:42064a180566e8ee",
+        "android_client_info": {
+          "package_name": "com.videxedge.fbdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940542219606-gh9ruvd94aon3emfp983brphklug5gfb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.videxedge.fbdemo",
+            "certificate_hash": "7531595e90e06c9d18dcfcac67342d3759c605f4"
+          }
+        },
+        {
+          "client_id": "940542219606-93lnd2ab68o4h3ftn9ooprsbkabiaegu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJa-VuGNHfLkT4iqFt9_fShFz8UPHuRyI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940542219606-93lnd2ab68o4h3ftn9ooprsbkabiaegu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
