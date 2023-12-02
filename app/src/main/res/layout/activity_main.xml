@@ -27,7 +27,8 @@
             android:id="@+id/iV"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8" />
+            android:layout_weight="8"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
         <Space
             android:layout_width="0dp"

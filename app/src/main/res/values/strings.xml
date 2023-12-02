@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">N11Demo03</string>
+    <string name="title">This application demonstrate:\n\n* Count down timer\n\n* Get images from camera and gallery\n\n* Upload and download from Firebase Storage</string>
 </resources>

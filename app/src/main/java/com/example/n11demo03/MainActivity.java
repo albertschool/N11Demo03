@@ -39,17 +39,24 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * The Main activity
+ * <p>
+ * This activity use to demonstrate:
+ * - take photos from camera / gallery & upload them to firebase storage
+ * - download images from firebase storage & display them
+ * </p>
+ *
+ * @author Levy Albert albert.school2015@gmail.com
+ * @version 2.0
+ * @since 01/12/2023
+ */
 public class MainActivity extends AppCompatActivity {
     private ImageView iV;
     private String lastStamp, lastFull, lastGallery;
     private String currentPath;
     private StorageReference refImg;
     private File localFile;
-
-
-//    private static final int readGallery = R.id.readGallery;
-    private static final int REQUEST_CAMERA_PERMISSION = 101;
-    private static final int REQUEST_READ_EXTERNAL_STORAGE_PERMISSION = 102;
     private static final int REQUEST_STAMP_CAPTURE = 201;
     private static final int REQUEST_FULL_IMAGE_CAPTURE = 202;
     private static final int REQUEST_PICK_IMAGE = 301;
@@ -64,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * takeStamp method
-     * <p> Taking a photo by camera & put it in the ImageView
+     * <p> Taking a photo by camera to upload to Firebase Storage
      * </p>
      *
      * @param view the view that triggered the method
@@ -79,12 +86,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * takeFull method
-     * <p> Taking a photo by camera & put it in the ImageView
+     * <p> Taking a full resolution photo by camera to upload to Firebase Storage
      * </p>
      *
      * @param view the view that triggered the method
      */
     public void takeFull(View view) {
+        // creating local temporary file to store the full resolution photo
         String filename = "tempfile";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         try {
@@ -98,13 +106,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(takePicIntent, REQUEST_FULL_IMAGE_CAPTURE);
             }
         } catch (IOException e) {
+            Toast.makeText(MainActivity.this,"Failed to create temporary file",Toast.LENGTH_LONG);
             throw new RuntimeException(e);
         }
     }
 
     /**
-     * Selecting image file from gallery to upload to Firebase Storage
-     * <p>
+     * takeFull method
+     * <p> Selecting image file from gallery to upload to Firebase Storage
+     * </p>
      *
      * @param view
      */
@@ -131,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             DateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
             final ProgressDialog pd;
             switch (requestCode) {
+                // Upload camera thumbnail image file
                 case REQUEST_STAMP_CAPTURE:
                     Bundle extras = data_back.getExtras();
                     if (extras != null) {
@@ -141,7 +152,6 @@ public class MainActivity extends AppCompatActivity {
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         imageBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
                         byte[] data = baos.toByteArray();
-
                         refImg.putBytes(data)
                                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                     @Override
@@ -159,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
                                 });
                     }
                     break;
+                // Upload camera full resolution image file
                 case REQUEST_FULL_IMAGE_CAPTURE:
                     pd=ProgressDialog.show(this,"Upload image","Uploading...",true);
                     lastFull = dateFormat.format(date);
@@ -183,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             });
                     break;
+                // Upload gallery image file
                 case REQUEST_PICK_IMAGE:
                     Uri file = data_back.getData();
                     if (file != null) {
@@ -242,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         }
+        // Download the image file and  display it
         final ProgressDialog pd=ProgressDialog.show(this,"Image download","downloading...",true);
         refImg.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
             @Override
